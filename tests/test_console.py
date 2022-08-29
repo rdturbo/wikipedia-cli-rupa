@@ -1,6 +1,6 @@
-import click.testing
-import pytest
-import requests
+import click.testing  # type: ignore
+import pytest  # type: ignore
+import requests  # type: ignore
 
 from wikipedia_cli_rupa import console
 

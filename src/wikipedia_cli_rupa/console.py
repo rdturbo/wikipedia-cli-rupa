@@ -1,7 +1,7 @@
 # src/wikipedia_cli_rupa/console.py
 import textwrap
 
-import click
+import click  # type: ignore
 
 from . import __version__, wikipedia
 
@@ -16,7 +16,7 @@ from . import __version__, wikipedia
     show_default=True,
 )
 @click.version_option(version=__version__)
-def main(language):
+def main(language: str) -> None:
     """The Wikipedia Command Line Interface project."""
     data = wikipedia.random_page(language=language)
     title = data["title"]
