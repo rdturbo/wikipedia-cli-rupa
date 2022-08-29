@@ -1,2 +1,2 @@
-# src/wikipedia_cli_rupa/__init__.py
+"""The Wikipedia Command Line Interface project."""
 __version__ = "0.1.0"

@@ -1,4 +1,4 @@
-# src/wikipedia_cli_rupa/console.py
+"""Command-line interface."""
 import textwrap
 
 import click
