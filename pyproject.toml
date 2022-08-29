@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "wikipedia_cli_rupa"
+name = "wikipedia-cli-rupa"
 version = "0.1.0"
 description = "The Wikipedia command line interface"
 authors = ["rdturbo <rupayan98@gmail.com>"]
@@ -14,6 +14,9 @@ python = "^3.10"
 click = "^8.1.3"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+wikipedia-cli-rupa = "wikipedia_cli.console:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
