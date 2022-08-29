@@ -1,6 +1,13 @@
 The Wikipedia Command Line Interface Python Project
 ===================================================
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   license
+   reference
+
 The command-line interface prints random facts to your console,
 using the `Wikipedia API <https://en.wikipedia.org/api/rest_v1/#/>`_.
 
