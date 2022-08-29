@@ -21,6 +21,7 @@ pytest = "^7.1.2"
 coverage = {extras = ["toml"], version = "^6.4.4"}
 pytest-cov = "^3.0.0"
 pytest-mock = "^3.8.2"
+black = {version = "^22.6.0", allow-prereleases = true}
 
 [tool.poetry.scripts]
 wikipedia = "wikipedia_cli_rupa.console:main"
