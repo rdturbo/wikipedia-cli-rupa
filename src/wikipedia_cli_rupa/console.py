@@ -18,7 +18,6 @@ from . import __version__, wikipedia
 def main(language):
     """The Wikipedia Command Line Interface project."""
     data = wikipedia.random_page(language=language)
-    
     title = data["title"]
     extract = data["extract"]
 
