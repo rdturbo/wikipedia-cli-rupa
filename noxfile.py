@@ -3,6 +3,7 @@ import tempfile
 import nox
 
 
+package = "wikipedia_cli_rupa"
 nox.options.sessions = "lint", "safety", "mypy", "tests"
 locations = "src", "tests", "noxfile.py"
 
@@ -73,3 +74,12 @@ def tests(session):
         session, "coverage[toml]", "pytest", "pytest-cov", "pytest-mock"
     )
     session.run("pytest", *args)
+
+
+@nox.session(python=["3.10"])
+def typeguard(session) -> None:
+    """Runtime type checking using Typeguard."""
+    args = session.posargs or ["-m", "not e2e"]
+    session.run("poetry", "install", "--no-dev", external=True)
+    install_with_constraints(session, "pytest", "pytest-mock", "typeguard")
+    session.run("pytest", f"--typeguard-packages={package}", *args)
