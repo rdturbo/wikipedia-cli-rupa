@@ -1,7 +1,7 @@
 # src/wikipedia_cli_rupa/console.py
 import textwrap
 
-import click  # type: ignore
+import click
 
 from . import __version__, wikipedia
 

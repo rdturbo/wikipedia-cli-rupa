@@ -1,6 +1,8 @@
 import tempfile
+from typing import Any
 
 import nox
+from nox.sessions import Session
 
 
 package = "wikipedia_cli_rupa"
@@ -8,7 +10,7 @@ nox.options.sessions = "lint", "safety", "mypy", "tests"
 locations = "src", "tests", "noxfile.py"
 
 
-def install_with_constraints(session, *args, **kwargs):
+def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> None:
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
@@ -23,18 +25,19 @@ def install_with_constraints(session, *args, **kwargs):
 
 
 @nox.session(python="3.10")
-def black(session):
+def black(session: Session) -> None:
     args = session.posargs or locations
     install_with_constraints(session, "black")
     session.run("black", *args)
 
 
 @nox.session(python=["3.10"])
-def lint(session):
+def lint(session: Session) -> None:
     args = session.posargs or locations
     install_with_constraints(
         session,
         "flake8",
+        "flake8-annotations",
         # "flake8-bandit",
         "flake8-black",
         "flake8-bugbear",
@@ -44,7 +47,7 @@ def lint(session):
 
 
 @nox.session(python="3.10")
-def safety(session):
+def safety(session: Session) -> None:
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
@@ -60,14 +63,14 @@ def safety(session):
 
 
 @nox.session(python=["3.10"])
-def mypy(session) -> None:
+def mypy(session: Session) -> None:
     args = session.posargs or locations
     install_with_constraints(session, "mypy")
     session.run("mypy", *args)
 
 
 @nox.session(python=["3.10"])
-def tests(session):
+def tests(session: Session) -> None:
     args = session.posargs or ["--cov", "-m", "not e2e"]
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(
