@@ -1,7 +1,7 @@
 import click.testing
 import pytest
 
-from src.wikipedia_cli_rupa import console
+from wikipedia_cli_rupa import console
 
 
 @pytest.fixture
