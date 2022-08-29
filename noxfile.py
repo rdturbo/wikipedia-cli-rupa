@@ -80,7 +80,7 @@ def tests(session: Session) -> None:
 
 
 @nox.session(python=["3.10"])
-def typeguard(session) -> None:
+def typeguard(session: Session) -> None:
     """Runtime type checking using Typeguard."""
     args = session.posargs or ["-m", "not e2e"]
     session.run("poetry", "install", "--no-dev", external=True)
