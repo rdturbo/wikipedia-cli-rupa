@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "wikipedia-cli-rupa"
+name = "wikipedia_cli_rupa"
 version = "0.1.0"
 description = "The Wikipedia command line interface"
 authors = ["rdturbo <rupayan98@gmail.com>"]
