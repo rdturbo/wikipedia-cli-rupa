@@ -1,7 +1,9 @@
-import nox
 import tempfile
 
+import nox
 
+
+nox.options.sessions = "lint", "tests"
 locations = "src", "tests", "noxfile.py"
 
 
@@ -12,6 +14,7 @@ def install_with_constraints(session, *args, **kwargs):
             "export",
             "--dev",
             "--format=requirements.txt",
+            "--without-hashes",
             f"--output={requirements.name}",
             external=True,
         )
@@ -28,7 +31,7 @@ def black(session):
 @nox.session(python=["3.10"])
 def lint(session):
     args = session.posargs or locations
-    install_with_constraints(session, "flake8")
+    install_with_constraints(session, "flake8", "flake8-black", "flake8-import-order")
     session.run("flake8", *args)
 
 
