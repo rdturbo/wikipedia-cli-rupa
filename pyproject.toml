@@ -38,6 +38,7 @@ darglint = "^1.8.1"
 xdoctest = "^1.0.2"
 Sphinx = "^5.1.1"
 sphinx-autodoc-typehints = "^1.19.2"
+codecov = "^2.1.12"
 
 [tool.poetry.scripts]
 wikipedia = "wikipedia_cli_rupa.console:main"
